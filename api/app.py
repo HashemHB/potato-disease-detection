@@ -13,7 +13,7 @@ app = fastapi.FastAPI()
 # Add CORS middleware here
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://potato-disease-detectionweb.vercel.app"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
