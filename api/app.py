@@ -4,10 +4,21 @@ import uvicorn
 import numpy as np
 import tensorflow as tf
 from PIL import Image
+from fastapi.middleware.cors import CORSMiddleware
 import io
 import os
 
 app = fastapi.FastAPI() 
+
+# Add CORS middleware here
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://potato-disease-detectionweb.vercel.app/"],  # Or specify your frontend URL like ["https://your-frontend.vercel.app"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 MODEL = tf.keras.models.load_model('models/1.keras')
 class_names = ['Early Blight', 'Late Blight', 'Healthy']

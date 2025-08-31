@@ -19,8 +19,7 @@ const App = () => {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
 
-  const API_URL =
-    "https://potato-api-1076418488378.me-central1.run.app/predict";
+  const API_URL = process.env.REACT_APP_API_URL;
 
   // Sample images for reference
   const sampleImages = [
