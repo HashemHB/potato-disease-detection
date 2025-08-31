@@ -1,8 +1,6 @@
 {
-  "build": {
-    "env": {},
-    "installCommand": "npm install --legacy-peer-deps",
-    "buildCommand": "npm run build",
-    "outputDirectory": "build"
-  }
+  "version": 2,
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build"
 }
