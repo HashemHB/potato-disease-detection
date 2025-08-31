@@ -5,15 +5,16 @@ import numpy as np
 import tensorflow as tf
 from PIL import Image
 import io
+import os
 
 app = fastapi.FastAPI() 
 
-MODEL = tf.keras.models.load_model('../models/1.keras')
+MODEL = tf.keras.models.load_model('models/1.keras')
 class_names = ['Early Blight', 'Late Blight', 'Healthy']
 
 @app.get('/')
 def index():
-    return {'message': 'Hello, World'} 
+    return {'message': 'Hello, World serevr is up and running'} 
 
 
 def read_file_as_image(data) -> np.ndarray:
@@ -40,4 +41,5 @@ async def predict(file: UploadFile = File(...)):
 
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='localhost', port=8000)   
+    port = int(os.environ.get("PORT", 8080))  # Cloud Run sets PORT
+    uvicorn.run(app, host='0.0.0.0', port=port)
