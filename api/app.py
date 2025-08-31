@@ -13,11 +13,12 @@ app = fastapi.FastAPI()
 # Add CORS middleware here
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://potato-disease-detectionweb.vercel.app/"],  # Or specify your frontend URL like ["https://your-frontend.vercel.app"]
+    allow_origins=["https://potato-disease-detectionweb.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 
 MODEL = tf.keras.models.load_model('models/1.keras')
