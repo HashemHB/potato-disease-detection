@@ -375,6 +375,7 @@ const App = () => {
         method: "POST",
         body: formData,
         credentials: "include",
+        mode: "cors",
       });
 
       if (!response.ok) {
