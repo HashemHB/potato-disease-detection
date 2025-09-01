@@ -374,6 +374,7 @@ const App = () => {
       const response = await fetch(API_URL, {
         method: "POST",
         body: formData,
+        credentials: "include",
       });
 
       if (!response.ok) {
