@@ -19,7 +19,7 @@ const App = () => {
   const [isDragOver, setIsDragOver] = useState(false);
   const fileInputRef = useRef(null);
 
-  const API_URL = process.env.REACT_APP_API_URL;
+  const API_URL = "/api";
 
   // Sample images for reference
   const sampleImages = [
@@ -371,11 +371,11 @@ const App = () => {
     formData.append("file", selectedFile);
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(`${API_URL}/predict`, {
         method: "POST",
         body: formData,
-        credentials: "include",
-        mode: "cors",
+        // NO credentials: "include" needed
+        // NO CORS headers needed
       });
 
       if (!response.ok) {
